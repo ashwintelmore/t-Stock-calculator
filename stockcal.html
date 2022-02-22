@@ -186,7 +186,7 @@
                     <input type="number" id="sellPrice" placeholder="sell price">
                 </form>
             </section>
-            <section class="flex flex-col">
+            <section class="flex flex-col result">
                 <h1 style=" margin: 20px;  color: #ff0101;">Stock calculation</h1>
                 <p>Invested ammount :- <span>0.00</span></p>
                 <p>Current value :- <span>0.00</span></p>
@@ -206,10 +206,10 @@
         const stockPrice = document.querySelector("#stockPrice");
         const quantity = document.querySelector("#quantity");
         const sellPrice = document.querySelector("#sellPrice");
-        const InvestedAmmount = document.querySelectorAll("span")[0];
-        const CurrentValue = document.querySelectorAll("span")[1];
-        const NetProfit = document.querySelectorAll("span")[2];
-        const ProfitLoass = document.querySelectorAll("span")[3];
+        const InvestedAmmount = document.querySelectorAll(".result span")[0];
+        const CurrentValue = document.querySelectorAll(".result span")[1];
+        const NetProfit = document.querySelectorAll(".result span")[2];
+        const ProfitLoass = document.querySelectorAll(".result span")[3];
 
 
 
