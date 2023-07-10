@@ -9,159 +9,7 @@
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Yusei Magic', sans-serif;
-            background-color: black;
-            color: white;
-        }
-
-        ::selection {
-            color: #ffffff;
-            background-color: blueviolet;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-
-        }
-
-        p {
-            font-size: 0.625rem;
-            font-size: 2rem;
-            margin-bottom: 14px;
-            text-transform: capitalize;
-
-            color: aquamarine;
-        }
-
-        .flex {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .flex-col {
-            flex-direction: column;
-        }
-
-        .content {
-            background-color: rgb(0, 0, 0);
-            padding: 3.125rem;
-
-        }
-
-        header {
-
-            background-color: rgb(28, 61, 61);
-            width: 100%;
-            height: 6.25rem;
-        }
-
-        header h1 {
-
-            text-shadow: 0 0 20px red;
-            word-spacing: 6px;
-            letter-spacing: 5px;
-            padding: 3px 30px;
-            text-transform: capitalize;
-            animation: liting infinite linear 4s;
-        }
-        #my-form span{
-            padding: 20px;
-        }
-
-        @keyframes liting {
-            0% {
-                text-shadow: 0 0 20px red;
-                color: rgb(238, 255, 0);
-            }
-
-            25% {
-                text-shadow: 0 0 20px rgb(238, 255, 0);
-                color: rgb(0, 17, 255);
-            }
-
-            50% {
-                text-shadow: 0 0 20px rgb(51, 255, 0);
-                color: rgb(255, 0, 0);
-            }
-
-            100% {
-                text-shadow: 0 0 20px rgb(255, 0, 0);
-                color: rgb(238, 255, 0);
-            }
-        }
-
-        section {
-
-            width: 100%;
-        }
-
-
-        h1 {
-            font-size: 2rem;
-            color: #ff0101;
-        }
-
-        input,
-        button {
-            display: block;
-            width: 18.75rem;
-            height: 3.125rem;
-            border-style: none;
-            margin-bottom: 2.0625rem;
-            border-radius: 6px;
-            padding: 0.9375rem;
-
-
-            background-color: black;
-            color: white;
-            box-shadow: 0px 0px 30px #ff0101;
-
-        }
-
-        footer {
-            width: 100%;
-            height: 100px;
-        }
-
-        @media screen and (max-width: 769px) {
-
-
-            .content {
-                display: block;
-                margin: 0;
-                padding: 0;
-            }
-
-            body {
-                font-size: 1.5rem;
-            }
-
-            h1 {
-                font-size: 2rem;
-
-            }
-
-            p {
-                font-size: 1rem;
-
-            }
-
-            footer {
-                font-size: 15px;
-            }
-
-            #my-form span{
-            font-size: 15px;
-        }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -172,7 +20,7 @@
         <div class="flex content">
             <section class="flex">
                 <form id="my-form">
-                    <span>Your Aukat : </span>
+                    <span>Your Budget : </span>
                     <input type="number" id="Aukat" value="0" placeholder="Your Aukat">
                     <span>Stock Price : </span>
 
@@ -201,54 +49,6 @@
 
         </div>
     </footer>
-    <script>
-        const Aukat = document.querySelector("#Aukat");
-        const stockPrice = document.querySelector("#stockPrice");
-        const quantity = document.querySelector("#quantity");
-        const sellPrice = document.querySelector("#sellPrice");
-        const InvestedAmmount = document.querySelectorAll(".result span")[0];
-        const CurrentValue = document.querySelectorAll(".result span")[1];
-        const NetProfit = document.querySelectorAll(".result span")[2];
-        const ProfitLoass = document.querySelectorAll(".result span")[3];
-
-
-
-        Aukat.addEventListener("input", () => {
-            quantity.value = (Aukat.value / stockPrice.value);
-            console.log(quantity.value);
-            calculation();
-        });
-
-        stockPrice.addEventListener("input", () => {
-            quantity.value = (Aukat.value / stockPrice.value);
-            calculation();
-        });
-
-        quantity.addEventListener("input", () => {
-            calculation();
-        });
-
-        sellPrice.addEventListener("input", () => {
-            calculation();
-        });
-
-        function calculation() {
-            InvestedAmmount.textContent = quantity.value * stockPrice.value;
-            CurrentValue.textContent = quantity.value * sellPrice.value;
-            NetProfit.textContent = CurrentValue.innerHTML - InvestedAmmount.innerHTML;
-            ProfitLoass.textContent = Math.round((NetProfit.innerHTML / InvestedAmmount.innerHTML) * 100) * 100 / 100 +
-                "%"
-
-            const lessOrgreater = Number(NetProfit.textContent);
-            if (lessOrgreater < 0) {
-                NetProfit.style.color = "red";
-                ProfitLoass.style.color = "red";
-            } else {
-                NetProfit.style.color = "green";
-                ProfitLoass.style.color = "green";
-            }
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
-
 </html>
